@@ -17,6 +17,15 @@ var api = new ParseServer({
   appId: process.env.APP_ID || 'campus-app',
   masterKey: process.env.MASTER_KEY || 'ijS97M6sbiNotEj5IKhf', //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'https://campus-app.herokuapp.com/parse',  // Don't forget to change to https if needed
+  push: {
+    ios: [
+      {
+        pfx: 'CampusApp.p12',
+        bundleId: 'com.github.thomashzhu.CampusApp',
+        production: false
+      }
+    ]
+  },
   liveQuery: {
     classNames: ["Message"] // List of classes to support for query subscriptions
   }
