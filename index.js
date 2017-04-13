@@ -20,7 +20,7 @@ var api = new ParseServer({
   push: {
     ios: 
       {
-        pfx: 'CampusApp.p12',
+        pfx: 'cert.p12',
         bundleId: 'com.github.thomashzhu.CampusApp',
         production: false
       }
