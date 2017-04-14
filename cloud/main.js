@@ -6,7 +6,7 @@ Parse.Cloud.define('push', function(request, response) {
     query.equalTo("user", user);
     
     Parse.Push.send({
-        where: pushQuery,
+        where: query,
         data: {
             alert: request.params.message,
             badge: 'Increment',
