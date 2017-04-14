@@ -1,4 +1,3 @@
-
 Parse.Cloud.define('push', function(request, response) {
     var user = new Parse.User();
     user.id = request.params.userId;
@@ -9,7 +8,9 @@ Parse.Cloud.define('push', function(request, response) {
     console.log(query);
     
     Parse.Push.send({
-        where: query,
+        where: {
+            deviceType: "ios"
+        },
         data: {
             alert: request.params.message,
             badge: 'Increment',
