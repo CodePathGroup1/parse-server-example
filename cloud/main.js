@@ -9,6 +9,7 @@ Parse.Cloud.define('push', function(request, response) {
         where: query,
         data: {
             alert: request.params.message,
+            sound: 'default'
         }
     }, {
       success: function() {
