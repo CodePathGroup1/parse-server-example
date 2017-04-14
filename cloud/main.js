@@ -10,7 +10,7 @@ Parse.Cloud.define('push', function(request, response) {
         data: {
             alert: request.params.message,
             sound: 'default',
-            userId: request.params.objectId
+            userId: request.params.conversationId
         }
     }, {
       success: function() {
