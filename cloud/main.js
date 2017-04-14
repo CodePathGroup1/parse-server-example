@@ -1,6 +1,6 @@
 Parse.Cloud.define('push', function(request, response) {
     var query = new Parse.Query(Parse.User);
-    query.equalTo('objectId', request.params.objectId);
+    query.equalTo('_id', request.params.objectId);
     
     var pushQuery = new Parse.Query(Parse.Installation);
     pushQuery.matchesQuery('user', query);
