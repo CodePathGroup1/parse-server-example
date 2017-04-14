@@ -18,5 +18,15 @@ Parse.Cloud.define('push', function(request, response) {
             badge: 'increment',
             sound: ''
         }
-    }, { useMasterKey: true });
+    }, {
+      success: function() {
+        console.log('##### PUSH OK');
+        res.success();
+      },
+      error: function(error) {
+        console.log('##### PUSH ERROR');
+        res.error();
+      },
+      useMasterKey: true
+    });
 });
