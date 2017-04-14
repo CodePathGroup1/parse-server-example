@@ -1,16 +1,14 @@
 Parse.Cloud.define('push', function(request, response) {
-    var user = new Parse.User();
-    user.id = request.params.userId;
+    var query = new Parse.Query(Parse.User);
+    query.equalTo('username', request.params.username);
     
-    var query = new Parse.Query(Parse.Installation);
-    query.equalTo("user", user);
+    var pushQuery = new Parse.Query(Parse.Installation);
+    pushQuery.matchesQuery('user', query);
     
     console.log(query);
     
     Parse.Push.send({
-        where: {
-            deviceType: "ios"
-        },
+        where: pushQuery,
         data: {
             alert: request.params.message,
             badge: 'Increment',
