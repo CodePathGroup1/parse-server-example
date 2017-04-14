@@ -9,8 +9,8 @@ Parse.Cloud.define('push', function(request, response) {
         where: query,
         data: {
             alert: request.params.message,
-            sound: 'default',
-            userId: request.params.conversationId
+            conversationId: request.params.conversationId,
+            sound: 'default'
         }
     }, {
       success: function() {
